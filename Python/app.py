@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask,request,Response
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
@@ -59,6 +59,11 @@ def hello():
     return mydict[var[0]]
    
 
+@app.route("/data",methods=['POST'])
+def getData():
+    r = request
+    name = r.form['name']
+    return name
 
 if __name__ == "__main__":
     
