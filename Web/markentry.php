@@ -4,7 +4,7 @@ require_once 'php/init.php';
 $user = new user();
 $marks = new marks();
 
-    if(!$user->IsLoggedIn())
+    if(!$user->IsLoggedIn() || $user->data()->role!=1)
     {
         header("location: index.php");
     }
@@ -26,17 +26,16 @@ $marks = new marks();
                 $marks->addProd(array(
                     "subject_id"=>$prof_info->subject_id,
                     input::get('exam')=>input::get('marks'),
-                    "roll_no"=>input::get('roll_no'),
-                    "remarks"=>input::get('remark')
+                    "roll_no"=>input::get('roll_no')
+                    //,"remarks"=>input::get('remark')
                 ));
             }
             else
             {
-                var_dump(array(input::get('exam')=>input::get('marks')));
                 $marks->update(
                 array(
-                    input::get('exam')=>input::get('marks'),
-                    "remarks"=>input::get('remark')
+                    input::get('exam')=>input::get('marks')
+                    //,"remarks"=>input::get('remark')
                 ),
                 array(
                     "subject_id"=>$prof_info->subject_id,
@@ -58,6 +57,19 @@ $marks = new marks();
     ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+        .card {
+                position: relative;
+                left: -500px;
+                top: 200px;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                max-width: 200px;
+                height: 100px;
+                margin: auto;
+                text-align: center;
+                font-family: 'Trebuchet MS';
+                border: 2px solid;
+                background-color: white;
+            }
         .topnav {
             overflow: hidden;
             background-color: #e9e9e9;
@@ -205,16 +217,12 @@ $marks = new marks();
         
     </div>
 
+    <div class="card">
+        <input type="button" id="classify" value="Classify" onclick="getStudents(<?php echo $prof_info->subject_id ?>)">
+    </div>
 
 
-
-
-
-    <br>
-    <br>
-    <br>
-
-    <form action="" method="POST">
+    <form action="" method="POST" id="entryform">
         <div class="container">
             <h1>Marks Entry</h1>
             <p>Please Enter Student Data.</p>
@@ -236,12 +244,13 @@ $marks = new marks();
             <label for="remark"><b>Remarks</b></label>
             <input type="text" placeholder="Enter Remark" name="remark" >
 
-            <button type="submit" class="registerbtn">Submit</button>
+            <button type="submit" class="registerbtn" >Submit</button>
         </div>
 
 
     </form>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>

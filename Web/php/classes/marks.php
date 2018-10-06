@@ -42,8 +42,7 @@ class marks
 		$x++;
 	}
 	 $query="INSERT into marks_and_attendance (`" . implode('` , `', $keys) . "`) VALUES ({$values}) ";
-
-
+	 echo $query;
 	if(!$this->_db->setquery($query)->error())
 	{
 	session::flash('marks','Marks Entered !');
@@ -78,7 +77,7 @@ class marks
      }
 
       $query= "UPDATE marks_and_attendance SET {$set} WHERE {$where}";
-  
+  	echo $query;
      if(!$this->_db->setquery($query)->error())
      {
         session::flash('marks','marks entered !');
@@ -171,6 +170,24 @@ public function search($filters= array())
 			return false;
 	}
 
+    public function allStudents($subj_id)
+    {   
+        $sql = "SELECT DISTINCT student_data.roll_no, student_data.name, student_data.division, marks_and_attendance.ut1_marks,marks_and_attendance.ut2_marks,marks_and_attendance.category\n"
+
+    . "from student_data ,marks_and_attendance,subject_data\n"
+
+    . "where student_data.roll_no=marks_and_attendance.roll_no and marks_and_attendance.subject_id=".$subj_id." order by student_data.division";
+
+        $result =$this->_db->setquery($sql);
+        if($result->count())
+        {
+            $this->_results=$result->results();
+            return true;
+        }
+
+        return false;
+
+    }
 
 
 }

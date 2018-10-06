@@ -2,7 +2,7 @@
 require_once 'php/init.php';
 $user = new user();
 
-if(!$user->IsLoggedIn())
+if(!$user->IsLoggedIn() || $user->data()->role!=1)
 {
     header("location: index.php");
 }
@@ -32,7 +32,7 @@ $prof_info  = $prof->data();
 
  body{
      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-     background-color: #2c2ea3;
+     background-color: #222222 ;
  }
  
 .topnav {
@@ -40,7 +40,6 @@ $prof_info  = $prof->data();
     background-color: #e9e9e9;
 }
 
-/* Style the links inside the navigation bar */
 .topnav a {
     float: left;
     display: block;
@@ -51,19 +50,19 @@ $prof_info  = $prof->data();
     font-size: 17px;
 }
 
-/* Change the color of links on hover */
+
 .topnav a:hover {
     background-color: #ddd;
     color: black;
 }
 
-/* Style the "active" element to highlight the current page */
+
 .topnav a.active {
     background-color: #2196F3;
     color: white;
 }
 
-/* Style the search box inside the navigation bar */
+
 .topnav input[type=text] {
     float: right;
     padding: 6px;
@@ -73,7 +72,6 @@ $prof_info  = $prof->data();
     font-size: 17px;
 }
 
-/* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
 @media screen and (max-width: 600px) {
     .topnav a, .topnav input[type=text] {
         float: none;
@@ -87,10 +85,6 @@ $prof_info  = $prof->data();
         border: 1px solid #ccc;
     }
 }
-
-
-
-
 
 .card {
   position: relative;
@@ -161,7 +155,7 @@ button:hover, a:hover {
 
 
 </style>  
-    
+
 </head>
 <body>
 
@@ -175,7 +169,7 @@ button:hover, a:hover {
             
 
 <div class="card">
-  <img src="user21.png" alt="John" style="width:100%">
+  <img src="images/user21.png" alt="John" style="width:100%">
   <h1><?php print($prof_info->prof_name) ?></h1>
   <p class="title"><?php print($prof_info->designation) ?></p>
   <p>RAIT,Nerul</p>
@@ -191,7 +185,7 @@ button:hover, a:hover {
 <div class="card1">
          
         <a href="markentry.php"><button type="button">Enter Marks</button></a>
-        <button type="button">View Data</button>
+        <a href="dataview.php"><button type="button">View Data</button></a>
         <button type="button">visualize Data</button>
       </div>
 
