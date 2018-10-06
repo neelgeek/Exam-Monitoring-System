@@ -5,8 +5,8 @@
 require_once 'php/init.php';
 $user = new user();
 $uinfo = $user->data();
-$student = new student($uinfo->user_id);
-$stud_info = $student->data();
+$stud = new profile('student_data','roll_no',$uinfo->user_id);
+$stud_info = $stud->data();
 
 
 
@@ -17,7 +17,7 @@ $stud_info = $student->data();
 
 <head>
     <title>
-    Welcome <?php $stud_info-> ?>        
+    Welcome <?php print($stud_info->name) ?>        
     </title>
 </head>
 
