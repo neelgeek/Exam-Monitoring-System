@@ -21,7 +21,8 @@ $(document).ready(function() {
             Chart.defaults.global.defaultFontColor = '#777';
 
             let massPopChart1 = new Chart(myChart1, {
-                type: 'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+                type: 'bar',
+                scaleStartValue: 0, // bar, horizontalBar, pie, line, doughnut, radar, polarArea
                 data: {
                     labels: subjs,
                     datasets: [{
@@ -44,6 +45,16 @@ $(document).ready(function() {
                     }]
                 },
                 options: {
+
+                    scales: {
+                        yAxes: [{
+                            display: true,
+                            ticks: {
+
+                                suggestedMin: 0 // minimum value will be 0.
+                            }
+                        }]
+                    },
                     title: {
                         display: true,
                         text: 'UNIT 1',
@@ -101,6 +112,15 @@ $(document).ready(function() {
                     }]
                 },
                 options: {
+                    scales: {
+                        yAxes: [{
+                            display: true,
+                            ticks: {
+
+                                suggestedMin: 0 // minimum value will be 0.
+                            }
+                        }]
+                    },
                     title: {
                         display: true,
                         text: 'UNIT 2',
