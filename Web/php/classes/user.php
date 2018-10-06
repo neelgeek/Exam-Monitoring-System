@@ -78,8 +78,30 @@ public function register($table,$fields)
      			if($user_info->password===$pass)
      			{
 					session::put('user',$user_info->user_id);
-					if($user_info->role==0)
-     				header('location: student.php');
+					switch ($user_info->role) {
+
+						case '0':
+							header('location: student.php');
+							break;
+						
+						case '1':
+							header('location: prof.php');
+							break;
+							
+						case '2':
+							header('location: parent.php');
+							break;
+						
+						case '3':
+							header('location: hod.php');
+							break;
+						
+							
+						default:
+							# code...
+							break;
+					}
+     				
      			}
      			else
      			{

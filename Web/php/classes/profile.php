@@ -1,20 +1,20 @@
 <?php
 
-class student
+class profile
 {
     private $_data,
     $_db;
 
-    public function __construct($id)
+    public function __construct($table,$field,$id)
     {
         $this->_db = db::getInstance();
-        $this->getInfo($id);
+        $this->getInfo($table,$field,$id);
     }
 
 
-    public function getInfo($id)
+    public function getInfo($table,$field,$id)
     {
-        $data=$this->_db->getData('student_data',array('roll_no'=>$id));
+        $data=$this->_db->getData($table,array($field=>$id));
 		if($data->count())
 		{
 			$this->_data=$data->results()[0];

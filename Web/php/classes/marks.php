@@ -46,11 +46,48 @@ class marks
 
 	if(!$this->_db->setquery($query)->error())
 	{
-	session::flash('home','Product Registered Sucessfully !');
-	header('location: index.php');
+	session::flash('marks','Marks Entered !');
+	header('location: markentry.php');
 	}
  }
 
+
+ public function update($fields,$id)
+ {
+     $set='';
+     $where='';
+     $y=1;
+     //echo count($fields);
+     foreach ($fields as $name => $value) {
+
+         $set.="`{$name}` = '{$value}' ";
+         if($y<count($fields))
+         {
+             $set.=", ";
+         }
+         $y++;
+     }
+     $y=1;
+     foreach ($id as $key => $value) {
+        $where.="`{$key}` = '{$value}' ";
+        if($y<count($id))
+        {
+            $where.="AND ";
+        }
+        $y++;
+     }
+
+      $query= "UPDATE marks_and_attendance SET {$set} WHERE {$where}";
+  
+     if(!$this->_db->setquery($query)->error())
+     {
+        session::flash('marks','marks entered !');
+        header('location: markentry.php');
+         return true;
+         
+     }
+     return false;
+ }
 
 public function search($filters= array())
 {

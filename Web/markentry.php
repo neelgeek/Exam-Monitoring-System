@@ -1,7 +1,61 @@
+<?php
+require_once 'php/init.php';
+
+$user = new user();
+$marks = new marks();
+
+    if(!$user->IsLoggedIn())
+    {
+        header("location: index.php");
+    }
+    else
+    {
+        $marks = new marks();
+        $uinfo = $user->data();
+        $prof = new profile('subject_data','subject_id',$uinfo->user_id);
+        $prof_info  = $prof->data();
+        if(input::exists())
+        {
+            $ifexist = $marks->search(array(
+                'subject_id'=>$prof_info->subject_id,
+                'roll_no'=>input::get('roll_no')
+            ));
+
+            if(!$ifexist)
+            {
+                $marks->addProd(array(
+                    "subject_id"=>$prof_info->subject_id,
+                    input::get('exam')=>input::get('marks'),
+                    "roll_no"=>input::get('roll_no'),
+                    "remarks"=>input::get('remark')
+                ));
+            }
+            else
+            {
+                var_dump(array(input::get('exam')=>input::get('marks')));
+                $marks->update(
+                array(
+                    input::get('exam')=>input::get('marks'),
+                    "remarks"=>input::get('remark')
+                ),
+                array(
+                    "subject_id"=>$prof_info->subject_id,
+                    "roll_no"=>input::get('roll_no')
+                ));
+            }
+        }
+            
+    }
+
+?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
+    <?php
+    echo session::flash('marks'); 
+    ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         .topnav {
@@ -144,11 +198,11 @@
 
 
     <div class="topnav">
-        <a class="active" href="#home">Home</a>
+        <a class="active" href="prof.php">Home</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
         <!--<input type="text" placeholder="Search..">-->
-        <a href="#logout">logout</a>
+        
     </div>
 
 
@@ -160,27 +214,27 @@
     <br>
     <br>
 
-    <form action="/action_page.php" method="POST">
+    <form action="" method="POST">
         <div class="container">
             <h1>Marks Entry</h1>
             <p>Please Enter Student Data.</p>
             <hr noshade>
 
             <label for="roll"><b>Student Roll No</b></label>
-            <input type="text" placeholder="Enter Roll No" name="user" required>
+            <input type="text" placeholder="Enter Roll No" name="roll_no" required>
 
             <label for="Marks"><b>Enter Marks</b></label>
-            <input type="text" placeholder="Enter marks" name="email" required>
+            <input type="text" placeholder="Enter marks" name="marks" required>
 
             <label for="Type"><b>Select Exam</b></label>
             <br><br>
             <hr noshade>
-            <label><input type="radio" name="role" value="student" checked>Unit Test - 1</label><br><br>
-            <label><input type="radio" name="role" value="student"></label>Unit Test - 2<br><br>
+            <label><input type="radio" name="exam" value="ut1_marks" checked>Unit Test - 1</label><br><br>
+            <label><input type="radio" name="exam" value="ut2_marks"></label>Unit Test - 2<br><br>
             <hr noshade>
 
             <label for="remark"><b>Remarks</b></label>
-            <input type="text" placeholder="Enter Remark" name="remark" required>
+            <input type="text" placeholder="Enter Remark" name="remark" >
 
             <button type="submit" class="registerbtn">Submit</button>
         </div>
