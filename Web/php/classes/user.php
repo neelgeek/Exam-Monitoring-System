@@ -65,20 +65,21 @@ public function register($table,$fields)
 		return false;
 	}
 
-	public function login($username,$password)
+	public function login($username,$pass)
 	{
 			$log_data= $this->_db->getData('users',array(
-     		'username'=>$username
+     		'user_id'=>$username
      		));
      	if(!$log_data->error())
      	{
      		if($log_data->count()===1)
      		{
      			
-     			if($log_data->results()[0]->password===input::get('pass_login'))
+     			if($log_data->results()[0]->password===$pass)
      			{
-     				session::put('user',$log_data->results()[0]->user_id);
-     				header('location: index.php');
+					session::put('user',$log_data->results()[0]->user_id);
+					 
+     				header('location: index.html');
      			}
      			else
      			{
