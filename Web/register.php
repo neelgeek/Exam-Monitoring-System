@@ -1,8 +1,17 @@
+<?php
+require_once 'php/init.php';
+
+
+$user = new user();
+
+if(input::exists())
+{
+    $user->register('users',array('user_id'=>input::get('email'),'password'=>input::get('psw'),'role'=>input::get('role')));
+}
+
+
+?>
 <!DOCTYPE html>
-
-
-
-
 <html>
 
 <head>
@@ -86,7 +95,7 @@
 
 <body>
 
-    <form action="/action_page.php" method="POST">
+    <form action="register.php"  method="POST">
         <div class="container">
             <h1>Register</h1>
             <p>Please fill in this form to create an account.</p>
@@ -99,16 +108,16 @@
             <label for="Type"><b>Account Type</b></label>
             <br><br>
             <hr noshade>
-            <label><input type="radio" name="role" value="student" checked>Student</label><br><br>
-            <label><input type="radio" name="role" value="student">Teacher</label><br><br>
-            <label><input type="radio" name="role" value="student" >Parent</label><br><br>
+            <label><input type="radio" name="optradio" checked>Student</label><br><br>
+            <label><input type="radio" name="optradio">Teacher</label><br><br>
+            <label><input type="radio" name="optradio" >HOD</label><br><br>
             <hr noshade>
 
             <label for="email"><b>Email</b></label>
             <input type="text" placeholder="Enter Email" name="email" required>
 
             <label for="phone"><b>Phone No</b></label>
-            <input type="text" placeholder="Enter mobile No" name="phn" required>
+            <input type="text" placeholder="Enter mobile No" name="email" required>
 
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="psw" required>

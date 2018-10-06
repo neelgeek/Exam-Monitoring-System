@@ -1,108 +1,237 @@
 <!DOCTYPE html>
 <html>
+<!-- Comment -->
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-color: black;
+    <title>Exam Monitoring</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: black;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin-right: auto;
+            /*5px*/
+            margin-left: auto;
+            /*5px*/
+            padding-top: 2px;
+            /*2px*/
+            padding-bottom: 2px;
+            /*2px*/
+        }
+        /* Add padding to containers */
+        
+        .container {
+            width: 550px;
+            height: 550px;
+            padding: 30px 30px 70px 30px;
+            background-color: white;
+        }
+        /* Full-width input fields */
+        
+        input[type=text],
+        input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: solid;
+            background: #f1f1f1;
+        }
+        
+        input[type=text]:focus,
+        input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+        /* Overwrite default styles of hr */
+        
+        hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+        }
+        /* Set a style for the submit button */
+        
+        .registerbtn {
+            background-color: #6e23ec;
+            color: white;
+            padding: 16px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+            font-size: larger;
+        }
+        
+        .registerbtn:hover {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            opacity: 1;
+        }
+        /* Add a blue text color to links */
+        
+        a {
+            color: dodgerblue;
+        }
+        /* Set a grey background color and center the text of the "sign in" section */
+        
+        .signin {
+            background-color: #f1f1f1;
+            text-align: center;
+            height: 50px;
+        }
+        /*--------------------Nav-bar-start--------------------------------------------------------- */
+        /*.navbar{
+  -webkit-border-radius: 5px;
+  background-color:#3b5998;
+  overflow:hidden;
+  height:63px;
 }
 
-* {
-    box-sizing: border-box;
-    margin-right: 5px;
-    margin-left: 5px;
-    padding-top: 2px;
-    padding-bottom: 2px;
+.navbar a{
+  float:left;
+  display:block;
+  color:#f2f2f2;
+  text-align:center;
+  padding:14px 16px;
+  text-decoration:none;
+  font-size:17px;
 }
 
-/* Add padding to containers */
-.container {
-    margin-left: 50px;
-    width: 500px;
-    height: 500px;
-    padding: 30px 30px 70px 30px;
-    background-color: white;
+.navbar ul{
+  margin:8px 0 0 0;
+  list-style:none;
 }
 
-/* Full-width input fields */
-input[type=text], input[type=password] {
-    width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-block;
-    border: solid;
-    background: #f1f1f1;
+.navbar a:hover{
+  background-color:#ddd;
+  color:#000;
 }
 
-input[type=text]:focus, input[type=password]:focus {
-    background-color: #ddd;
-    outline: none;
+.side-nav{
+  height:100%;
+  width:0;
+  position:fixed;
+  z-index:1;
+  top:0;
+  left:0;
+  background-color:#111;
+  opacity:0.9;
+  overflow-x:hidden;
+  padding-top:60px;
+  transition:0.5s;
 }
 
-/* Overwrite default styles of hr */
-hr {
-    border: 1px solid #f1f1f1;
-    margin-bottom: 25px;
-    
+.side-nav a{
+  padding:10px 10px 10px 30px;
+  text-decoration:none;
+  font-size:22px;
+  color:#ccc;
+  display:block;
+  transition:0.3s;
 }
 
-/* Set a style for the submit button */
-.registerbtn {
-    background-color: #6e23ec;
-    color: white;
-    padding: 16px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    opacity: 0.9;
-    font-size: larger;
+.side-nav a:hover{
+  color:#fff;
 }
 
-.registerbtn:hover {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    opacity: 1;
+.side-nav .btn-close{
+  position:absolute;
+  top:0;
+  right:22px;
+  font-size:36px;
+  margin-left:50px;
 }
 
-/* Add a blue text color to links */
-a {
-    color: dodgerblue;
+#main{
+  transition:margin-left 0.5s;
+  padding:20px;
+  overflow:hidden;
+  width:100%;
 }
 
-/* Set a grey background color and center the text of the "sign in" section */
-.signin {
-    background-color: #f1f1f1;
-    text-align: center;
+@media(max-width:568px){
+  .navbar-nav{display:none}
 }
-</style>
+
+@media(min-width:568px){
+  /*.open-slide{display:none}*/
+    }
+    */
+    /*--------------------Nav-bar-end--------------------------------------------------------- */
+    </style>
 </head>
+
 <body>
+    <!-- <nav class="navbar">
+        <span class="open-slide">
+          <a href="#" onclick="openSlideMenu()">
+            <svg width="30" height="30">
+                <path d="M0,5 30,5" stroke="#fff" stroke-width="5"/>
+                <path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
+                <path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
+            </svg>
+          </a>
+        </span>
+    
+        <ul class="navbar-nav">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Login</a></li>
+        </ul>
+      </nav>
+    
+      <div id="side-menu" class="side-nav">
+        <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+        <a href="#">Login</a>
+        
+      </div> -->
 
-<form action="/action_page.php">
-  <div class="container">
-    <h1>Sign in</h1>
-    <br>
-    <br>
-    <p>Please enter your login id and password.</p>
-    <hr noshade>
+    <div id="main">
+        <!-- <h1>Responsive Side Menu</h1>-->
+    </div>
 
-    <label for="user"><b>User id</b></label>
-    <input type="text" placeholder="Enter Username" name="email" required>
-<br>
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-<br>
+    <script>
+        function openSlideMenu() {
+            document.getElementById('side-menu').style.width = '250px';
+            document.getElementById('main').style.marginLeft = '250px';
+        }
 
-    <hr noshade>
+        function closeSlideMenu() {
+            document.getElementById('side-menu').style.width = '0';
+            document.getElementById('main').style.marginLeft = '0';
+        }
+    </script>
+    <div class="para1">
 
-    <button type="submit" class="registerbtn">Sign in</button>
-  </div>
-  
-  <div class="container signin">
-    <p>Don't have an account? <a href="#">Register</a>.</p>
-  </div>
-</form>
+        <!--------------------------------------------------------------------------------------->
+        <form action="/action_page.php">
+            <div class="container">
+                <h1>Sign in</h1>
+                <br>
+                <br>
+                <p>Please enter your login id and password.</p>
+                <hr noshade>
+
+                <hr noshade>
+
+                <button type="submit" class="registerbtn">Sign in</button>
+            </div>
+
+            <div class="container signin">
+                <p>Don't have an account? <a href="#">Register</a>.</p>
+            </div>
+        </form>
 
 </body>
+
 </html>

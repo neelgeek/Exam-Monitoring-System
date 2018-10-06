@@ -15,7 +15,7 @@ private function __construct()
 		$password="";
 	try
 	{
-	$this->_pdo= new PDO('mysql: host=localhost ;dbname=sellengine',$user,$password);
+	$this->_pdo= new PDO('mysql: host=localhost ;dbname=ems',$user,$password);
 	}
 	catch(PDOException $e)
 	{

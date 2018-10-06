@@ -1,20 +1,32 @@
+<?php
+
+    require_once 'php/init.php';
+    $user = new user();
+
+    if($user->IsLoggedIn())
+    {
+        header('location: index.html');
+    }
+    else
+    {
+        if(input::exists())
+        {
+            print("Input Exists");
+            $user->login(input::get('id'),input::get('psw'));
+
+        }
+
+    }
+?>
+
 <!DOCTYPE html>
-
-
-
-
 <html>
+<!-- Comment -->
 
 <head>
+    <title>Exam Monitoring</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        * {
-            margin-right: 5px;
-            margin-left: 5px;
-            padding-top: 2px;
-            padding-bottom: 2px;
-        }
-        
         body {
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             background-color: black;
@@ -22,11 +34,21 @@
         
         * {
             box-sizing: border-box;
+            margin-right: auto;
+            /*5px*/
+            margin-left: auto;
+            /*5px*/
+            padding-top: 2px;
+            /*2px*/
+            padding-bottom: 2px;
+            /*2px*/
         }
         /* Add padding to containers */
         
         .container {
-            padding: 10px 10px 10px 10px;
+            width: 550px;
+            height: 550px;
+            padding: 30px 30px 70px 30px;
             background-color: white;
         }
         /* Full-width input fields */
@@ -80,49 +102,39 @@
         .signin {
             background-color: #f1f1f1;
             text-align: center;
+            height: 50px;
         }
+        /*--------------------Nav-bar-start--------------------------------------------------------- */
+        /*--------------------Nav-bar-end--------------------------------------------------------- */
     </style>
 </head>
 
 <body>
 
-    <form action="/action_page.php" method="POST">
+
+
+    <form action="" method="POST">
         <div class="container">
-            <h1>Register</h1>
-            <p>Please fill in this form to create an account.</p>
+            <h1>Sign in</h1>
+            <br>
+            <br>
+            <p>Please enter your login id and password.</p>
             <hr noshade>
 
-            <label for="name"><b>Name</b></label>
-            <input type="text" placeholder="[First Name] [Middle Name] [Last Name]" name="user" required>
-
-
-            <label for="Type"><b>Account Type</b></label>
-            <br><br>
-            <hr noshade>
-            <label><input type="radio" name="role" value="student" checked>Student</label><br><br>
-            <label><input type="radio" name="role" value="student">Teacher</label><br><br>
-            <label><input type="radio" name="role" value="student" >Parent</label><br><br>
-            <hr noshade>
-
-            <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" required>
-
-            <label for="phone"><b>Phone No</b></label>
-            <input type="text" placeholder="Enter mobile No" name="phn" required>
-
+            <label for="user"><b>User id</b></label>
+            <input type="text" placeholder="Enter Username" name="id" required>
+            <br>
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="psw" required>
+            <br>
 
-            <label for="psw-repeat"><b>Repeat Password</b></label>
-            <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
             <hr noshade>
-            <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
-            <button type="submit" class="registerbtn">Register</button>
+            <button type="submit" class="registerbtn">Sign in</button>
         </div>
 
         <div class="container signin">
-            <p>Already have an account? <a href="#">Sign in</a>.</p>
+            <p>Don't have an account? <a href="#">Register</a>.</p>
         </div>
     </form>
 
