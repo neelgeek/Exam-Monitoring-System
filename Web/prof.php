@@ -161,8 +161,7 @@ button:hover, a:hover {
 
 
 </style>  
-
-
+    
 </head>
 <body>
 
@@ -191,7 +190,7 @@ button:hover, a:hover {
 
 <div class="card1">
          
-        <button type="button">Enter Marks</button>
+        <a href="markentry.php"><button type="button">Enter Marks</button></a>
         <button type="button">View Data</button>
         <button type="button">visualize Data</button>
       </div>
