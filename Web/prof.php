@@ -72,6 +72,20 @@ $prof_info  = $prof->data();
     font-size: 17px;
 }
 
+        .dropdown_option {
+    background-color: #dddddd;
+    color: black;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    height:60px;
+    cursor: pointer;
+    border: 1px solid;
+    border-color: black;;
+    
+    
+}
+
 @media screen and (max-width: 600px) {
     .topnav a, .topnav input[type=text] {
         float: none;
@@ -131,14 +145,15 @@ $prof_info  = $prof->data();
 
 .card1 button{
     border: 1px solid;
-    display: inline-block;
-    margin-top: 80px;
-    padding: 8px;
-    color: #2196F3;
-    text-align: center;
-    cursor: pointer;
-    width: 300px;
-    height: 60px;
+            border-color: black;
+            display: inline-block;
+            margin-top: 80px;
+            padding: 8px;
+            color: black;
+            text-align: center;
+            cursor: pointer;
+            width: 300px;
+            height: 60px;
 }
 
 
@@ -183,11 +198,18 @@ button:hover, a:hover {
 </div>
 
 <div class="card1">
-         
-        <a href="markentry.php"><button type="button">Enter Marks</button></a>
-        <a href="dataview.php"><button type="button">View Data</button></a>
-        <button type="button">visualize Data</button>
-      </div>
+
+<button type="button">Enter Marks</button>
+<button type="button">View Data</button>
+<select class='dropdown_option'>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="both">Both</option>
+       
+      </select>
+<button type="button">visualize Data</button>
+
+</div>
 
 
 
