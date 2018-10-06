@@ -4,7 +4,7 @@ require_once 'php/init.php';
 $user = new user();
 $marks = new marks();
 
-    if(!$user->IsLoggedIn())
+    if(!$user->IsLoggedIn() || $user->data()->role!=1)
     {
         header("location: index.php");
     }
