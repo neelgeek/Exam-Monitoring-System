@@ -53,7 +53,7 @@
       <li><a href="#">About</a></li>
       <li><a href="#">Services</a></li>
       <li><a href="#">Contact</a></li>
-      <li><a href="#">Login</a></li>
+      <li><a href="logout.php">Logout</a></li>
     </ul>
   </nav>
 
@@ -67,7 +67,7 @@
     <a href="#">Inspect</a>
     <a href="#">View Credentials</a>
     <a href="#">Logout</a>
-    
+
   </div>
 
   <div id="main">

@@ -1,3 +1,18 @@
+<?php
+require_once 'php/init.php';
+$user = new user();
+if(!$user->IsLoggedIn() || $user->data()->role!=1)
+{
+    header("location: index.php");
+}
+else
+{
+$uinfo = $user->data();
+$prof = new profile('subject_data','subject_id',$uinfo->user_id);
+$prof_info  = $prof->data();
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -72,12 +87,6 @@
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             background-color: white;
         }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
         /* Add padding to containers */
         
         a {
@@ -137,10 +146,10 @@
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
         <!--<input type="text" placeholder="Search.."-->
-        <a href="#logout">logout</a>
+        <a href="logout.php">logout</a>
     </div>
 
-    <h2 align="center">Data Visulization</h2>
+    <h2 align="center">Data Visualization</h2>
 
 
     <div class="plsshift">
@@ -155,77 +164,28 @@
         <script>
             var barChartData = {
 
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                labels: ['Div A', 'Div B'],
 
                 datasets: [{
 
-                    label: 'Dataset 1',
+                    label: 'Unit Test 1',
 
                     backgroundColor: window.chartColors.red,
 
                     data: [
 
-                        randomScalingFactor(),
-
-                        randomScalingFactor(),
-
-                        randomScalingFactor(),
-
-                        randomScalingFactor(),
-
-                        randomScalingFactor(),
-
-                        randomScalingFactor(),
-
-                        randomScalingFactor()
-
+                        17, 12
                     ]
 
                 }, {
 
-                    label: 'Dataset 2',
+                    label: 'Unit Test 2',
 
                     backgroundColor: window.chartColors.blue,
 
                     data: [
 
-                        randomScalingFactor(),
-
-                        randomScalingFactor(),
-
-                        randomScalingFactor(),
-
-                        randomScalingFactor(),
-
-                        randomScalingFactor(),
-
-                        randomScalingFactor(),
-
-                        randomScalingFactor()
-
-                    ]
-
-                }, {
-
-                    label: 'Dataset 3',
-
-                    backgroundColor: window.chartColors.green,
-
-                    data: [
-
-                        randomScalingFactor(),
-
-                        randomScalingFactor(),
-
-                        randomScalingFactor(),
-
-                        randomScalingFactor(),
-
-                        randomScalingFactor(),
-
-                        randomScalingFactor(),
-
-                        randomScalingFactor()
+                        30, 25
 
                     ]
 
@@ -251,7 +211,7 @@
 
                             display: true,
 
-                            text: 'Chart.js Bar Chart - Stacked'
+                            text: ''
 
                         },
 
@@ -275,7 +235,8 @@
 
                             yAxes: [{
 
-                                stacked: true
+                                stacked: true,
+                                max: 60
 
                             }]
 

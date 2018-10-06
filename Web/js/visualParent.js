@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $.ajax({
         type: "GET",
-        url: "utils/utscores.php",
+        url: "utils/utscoresparent.php",
         success: function(response) {
             var data = JSON.parse(response);
             var ut1 = [];

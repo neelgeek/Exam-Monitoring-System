@@ -207,6 +207,25 @@ public function search($filters= array())
 	
 	}
 
+	public function getUTscoreParents($pid)
+	{
+			//
+			$sql = "SELECT subject_data.subject_name,marks_and_attendance.ut1_marks,marks_and_attendance.ut2_marks 
+			FROM student_data,marks_and_attendance,subject_data WHERE p_id={$pid} 
+			AND student_data.roll_no=marks_and_attendance.roll_no 
+			AND subject_data.subject_id=marks_and_attendance.subject_id";
+		
+				$result =$this->_db->setquery($sql);
+				if($result->count())
+				{
+					$this->_results=$result->results();
+					return true;
+				}
+		
+				return false;
+		
+	}
+
 
 }
 

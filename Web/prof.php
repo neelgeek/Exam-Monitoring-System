@@ -1,7 +1,6 @@
 <?php
 require_once 'php/init.php';
 $user = new user();
-
 if(!$user->IsLoggedIn() || $user->data()->role!=1)
 {
     header("location: index.php");
@@ -186,7 +185,7 @@ button:hover, a:hover {
          
         <a href="markentry.php"><button type="button">Enter Marks</button></a>
         <a href="dataview.php"><button type="button">View Data</button></a>
-        <button type="button">visualize Data</button>
+        <a href="profvisual.php"><button type="button">Visualize Data</button></a>
       </div>
 
 

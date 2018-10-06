@@ -96,7 +96,9 @@ public function register($table,$fields)
 							header('location: hod.php');
 							break;
 						
-							
+						case '-1':
+							header('location: admin.php');
+							break;
 						default:
 							# code...
 							break;
