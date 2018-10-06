@@ -74,12 +74,12 @@ public function register($table,$fields)
      	{
      		if($log_data->count()===1)
      		{
-     			
-     			if($log_data->results()[0]->password===$pass)
+     			$user_info =$log_data->results()[0];
+     			if($user_info->password===$pass)
      			{
-					session::put('user',$log_data->results()[0]->user_id);
-					 
-     				header('location: index.html');
+					session::put('user',$user_info->user_id);
+					if($user_info->role==0)
+     				header('location: student.php');
      			}
      			else
      			{

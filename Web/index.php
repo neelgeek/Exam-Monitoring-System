@@ -5,7 +5,10 @@
 
     if($user->IsLoggedIn())
     {
-        header('location: index.html');
+        if($user->data()->role==0)
+        {
+            header("location: student.php");
+        }
     }
     else
     {
