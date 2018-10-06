@@ -1,0 +1,40 @@
+1.View according to category:
+
+SELECT student_data.roll_no, student_data.name, student_data.division, marks_and_attendance.ut1_marks,marks_and_attendance.ut2_marks
+from student_data ,marks_and_attendance 
+where student_data.roll_no=marks_and_attendance.roll_no and /*input_category=marks_and_attendance.category;*/
+
+2.all students:
+
+SELECT student_data.roll_no, student_data.name, student_data.division, marks_and_attendance.ut1_marks,marks_and_attendance.ut2_marks,marks_and_attendance.category
+from student_data ,marks_and_attendance 
+where student_data.roll_no=marks_and_attendance.roll_no;
+
+3. a division:
+
+SELECT student_data.roll_no, student_data.name, student_data.division, marks_and_attendance.ut1_marks,marks_and_attendance.ut2_marks
+from student_data ,marks_and_attendance 
+where student_data.roll_no=marks_and_attendance.roll_no and student_data.division='a';
+
+4. b division:
+
+SELECT student_data.roll_no, student_data.name, student_data.division, marks_and_attendance.ut1_marks,marks_and_attendance.ut2_marks
+from student_data ,marks_and_attendance 
+where student_data.roll_no=marks_and_attendance.roll_no and student_data.division='b';
+
+5. Individual student:
+
+SELECT student_data.roll_no, student_data.name, student_data.division, marks_and_attendance.ut1_marks,marks_and_attendance.ut2_marks
+from student_data ,marks_and_attendance 
+where student_data.roll_no=marks_and_attendance.roll_no /* and input roll no=student_data.roll_name; */
+
+
+6. Category(pie chart):
+
+SELECT marks_and_attendance.category, count(marks_and_attendance.category) as count_category
+from marks_and_attendance 
+GROUP by marks_and_attendance.category;
+
+7.Total of ut1_marks and ut2_marks:
+
+UPDATE `marks_and_attendance` SET `total`ut1_marks+ut2_marks WHERE 1;
