@@ -1,4 +1,17 @@
 <?php
+require_once 'php/init.php';
+$user = new user();
+
+if(!$user->IsLoggedIn())
+{
+    header("location: index.php");
+}
+else
+{
+$uinfo = $user->data();
+$prof = new profile('subject_data','subject_id',$uinfo->user_id);
+$prof_info  = $prof->data();
+}
 
 ?>
 
@@ -10,7 +23,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Responsive Side Menu</title>
+  <title>Welcome <?php print($prof_info->prof_name) ?></title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
@@ -154,25 +167,26 @@ button:hover, a:hover {
 <body>
 
         <div class="topnav">
-                <a class="active" href="#home">Home</a>
+                <a class="active" href="prof.php">Home</a>
                 <a href="#about">About</a>
                 <a href="#contact">Contact</a>
-                <input type="text" placeholder="Search..">
+                <!--<input type="text" placeholder="Search..">-->
+                <a href="logout.php">Logout</a>
         </div>
             
 
 <div class="card">
   <img src="user21.png" alt="John" style="width:100%">
-  <h1>Neel Bhave</h1>
-  <p class="title">Assitant Professor</p>
-  <p>D.Y Patil University</p>
+  <h1><?php print($prof_info->prof_name) ?></h1>
+  <p class="title"><?php print($prof_info->designation) ?></p>
+  <p>RAIT,Nerul</p>
   <div style="margin: 24px 0;">
      
     <a href="#"><i class="fa fa-twitter"></i></a>  
     <a href="#"><i class="fa fa-linkedin"></i></a>  
     <a href="#"><i class="fa fa-facebook"></i></a> 
  </div>
- <p><button>SDRN: G6373KP</button></p>
+ <p><button>SDRN: <?php print($prof_info->subject_id) ?></button></p>
 </div>
 
 <div class="card1">

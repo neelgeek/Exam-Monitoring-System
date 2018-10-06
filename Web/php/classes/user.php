@@ -81,10 +81,21 @@ public function register($table,$fields)
 					switch ($user_info->role) {
 
 						case '0':
-						header('location: student.php');
+							header('location: student.php');
 							break;
 						
-
+						case '1':
+							header('location: prof.php');
+							break;
+							
+						case '2':
+							header('location: parent.php');
+							break;
+						
+						case '3':
+							header('location: hod.php');
+							break;
+						
 							
 						default:
 							# code...
