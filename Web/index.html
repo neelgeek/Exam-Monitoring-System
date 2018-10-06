@@ -145,23 +145,7 @@
       }
     });
   </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
 <div class="container1">
     <canvas id="myChart"></canvas>
   </div>
@@ -175,7 +159,7 @@
     Chart.defaults.global.defaultFontColor = '#777';
 
     let massPopChart = new Chart(myChart, {
-      type:'pie', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+      type:'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
       data:{
         labels:['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
         datasets:[{
