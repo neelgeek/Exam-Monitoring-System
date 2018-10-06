@@ -17,7 +17,7 @@ $stud_info = $student->data();
 
 <head>
     <title>
-        
+    Welcome <?php $stud_info-> ?>        
     </title>
 </head>
 
