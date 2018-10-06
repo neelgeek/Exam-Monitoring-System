@@ -159,8 +159,6 @@ $prof_info  = $prof->data();
 
         </div>
 
-        <button id="randomizeData" align="center">Randomize Data</button>
-
         <script>
             var barChartData = {
 
@@ -323,7 +321,7 @@ $prof_info  = $prof->data();
 
                     },
                     legend: {
-                        display: true,
+                        display: false,
                         position: 'left',
                         labels: {
                             fontColor: '#000'
