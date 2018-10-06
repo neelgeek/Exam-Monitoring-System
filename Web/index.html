@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Responsive Side Menu</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+
+
+</head>
+<body>
+  <nav class="navbar">
+    <span class="open-slide">
+      <a href="#" onclick="openSlideMenu()">
+        <svg width="30" height="30">
+            <path d="M0,5 30,5" stroke="#fff" stroke-width="5"/>
+            <path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
+            <path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
+        </svg>
+      </a>
+    </span>
+
+    <ul class="navbar-nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Login</a></li>
+    </ul>
+  </nav>
+
+  <div id="side-menu" class="side-nav">
+    <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+    <a href="#">Login</a>
+    
+  </div>
+
+  <div id="main">
+   <!-- <h1>Responsive Side Menu</h1>-->
+  </div>
+
+  <script>
+    function openSlideMenu(){
+      document.getElementById('side-menu').style.width = '250px';
+      document.getElementById('main').style.marginLeft = '250px';
+    }
+
+    function closeSlideMenu(){
+      document.getElementById('side-menu').style.width = '0';
+      document.getElementById('main').style.marginLeft = '0';
+    }
+  </script>
+<div class="para1">
+<p>Autism, or autism spectrum disorder (ASD), refers to a broad range of conditions characterized by challenges with social skills, repetitive behaviors, speech and nonverbal communication.*
+
+  We now know that there is not one autism but many subtypes, and each person with autism can have unique strengths and challenges.
+  
+  A combination of genetic and environmental factors influence the development of autism, and autism often is accompanied by medical issues such as:
+  
+  Gastrointestinal (GI) disorders
+  Seizures
+  Sleep disturbances
+  Autism affects an estimated 1 in 59 children.
+  
+  Many people with autism also have sensory issues. These can include aversions to certain sights, sounds and other sensations.
+  
+  Autism’s hallmark signs usually appear by age 2 to 3. Often, it can be diagnosed as early as 18 months. Some associated development delays can appear even earlier.
+  
+  * In 2013, the American Psychiatric Association merged four distinct autism diagnoses into one umbrella diagnosis of autism spectrum disorder (ASD). They included autistic disorder, childhood disintegrative disorder, pervasive developmental disorder-not otherwise specified (PDD-NOS) and Asperger syndrome. 
+</p>
+<br>
+<p>Autism, or autism spectrum disorder (ASD), refers to a broad range of conditions characterized by challenges with social skills, repetitive behaviors, speech and nonverbal communication.*
+
+  We now know that there is not one autism but many subtypes, and each person with autism can have unique strengths and challenges.
+  
+  A combination of genetic and environmental factors influence the development of autism, and autism often is accompanied by medical issues such as:
+  
+  Gastrointestinal (GI) disorders
+  Seizures
+  Sleep disturbances
+  Autism affects an estimated 1 in 59 children.
+  
+  Many people with autism also have sensory issues. These can include aversions to certain sights, sounds and other sensations.
+  
+  Autism’s hallmark signs usually appear by age 2 to 3. Often, it can be diagnosed as early as 18 months. Some associated development delays can appear even earlier.
+  
+  * In 2013, the American Psychiatric Association merged four distinct autism diagnoses into one umbrella diagnosis of autism spectrum disorder (ASD). They included autistic disorder, childhood disintegrative disorder, pervasive developmental disorder-not otherwise specified (PDD-NOS) and Asperger syndrome. 
+</p>
+<br>
+
+</div>
+
+
+
+
+
+
+<div class="container1">
+    <canvas id="myChart"></canvas>
+  </div>
+
+  <script>
+    let myChart = document.getElementById('myChart').getContext('2d');
+
+    // Global Options
+    Chart.defaults.global.defaultFontFamily = 'Trebuchet MS';
+    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontColor = '#777';
+
+    let massPopChart = new Chart(myChart, {
+      type:'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+      data:{
+        labels:['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
+        datasets:[{
+          label:'Population',
+          data:[
+            617594,
+            181045,
+            153060,
+            106519,
+            105162,
+            95072
+          ],
+          //backgroundColor:'green',
+          backgroundColor:[
+            'rgba(255, 99, 132, 0.6)',
+            'rgba(54, 162, 235, 0.6)',
+            'rgba(255, 206, 86, 0.6)',
+            'rgba(75, 192, 192, 0.6)',
+            'rgba(153, 102, 255, 0.6)',
+            'rgba(255, 159, 64, 0.6)',
+            'rgba(255, 99, 132, 0.6)'
+          ],
+          borderWidth:1,
+          borderColor:'#777',
+          hoverBorderWidth:3,
+          hoverBorderColor:'#000'
+        }]
+      },
+      options:{
+        title:{
+          display:true,
+          text:'Largest Cities In Massachusetts',
+          fontSize:25
+        },
+        legend:{
+          display:true,
+          position:'top',
+          labels:{
+            fontColor:'#000'
+          }
+        },
+        layout:{
+          padding:{
+            left:50,
+            right:0,
+            bottom:0,
+            top:0
+          }
+        },
+        tooltips:{
+          enabled:true
+        }
+      }
+    });
+  </script>
+
+
+
+
+<!--FOOTER-->
+<footer class="footer-distributed">
+
+  <div class="footer-left">
+
+    <h3>Exam<span>monitoring</span></h3>
+
+    <p class="footer-links">
+      <a href="#">xyz</a>
+      ·
+      <a href="#">xyz</a>
+      ·
+      <a href="#">xyz</a>
+      ·
+      <a href="#">xyz</a>
+      ·
+      <a href="#">xyz</a>
+      ·
+      <a href="#">xyz</a>
+    </p>
+
+    <p class="footer-company-name">NotFriendsTech &copy; 2018</p>
+  </div>
+
+  <div class="footer-center">
+
+    <div>
+      <i class="fa fa-map-marker"></i>
+      <p><span>Ramrao Adik Institute of Technology</span> Nerul, Navi-Mumbai</p>
+    </div>
+
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>+91 8850184206</p>
+    </div>
+
+    <div>
+      <i class="fa fa-envelope"></i>
+      <p><a href="mailto:support@company.com">NotFriendsTech@gmail.com</a></p>
+    </div>
+
+  </div>
+
+  <div class="footer-right">
+
+    <p class="footer-company-about">
+      <span>About the company</span>
+      something about exam monitoring sysytem.
+    </p>
+
+    <div class="footer-icons">
+
+      <a href="#"><i class="fa fa-facebook"></i></a>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-linkedin"></i></a>
+      <a href="#"><i class="fa fa-github"></i></a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
