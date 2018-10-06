@@ -1,3 +1,24 @@
+<?php
+
+    require_once 'php/init.php';
+    $user = new user();
+
+    if($user->IsLoggedIn())
+    {
+        header('location: index.html');
+    }
+    else
+    {
+        if(input::exists())
+        {
+            print("Input Exists");
+            $user->login(input::get('id'),input::get('psw'));
+
+        }
+
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 <!-- Comment -->
@@ -92,7 +113,7 @@
 
 
 
-    <form action="/action_page.php">
+    <form action="" method="POST">
         <div class="container">
             <h1>Sign in</h1>
             <br>
@@ -101,7 +122,7 @@
             <hr noshade>
 
             <label for="user"><b>User id</b></label>
-            <input type="text" placeholder="Enter Username" name="email" required>
+            <input type="text" placeholder="Enter Username" name="id" required>
             <br>
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="psw" required>
