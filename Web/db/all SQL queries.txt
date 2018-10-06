@@ -8,7 +8,7 @@ where student_data.roll_no=marks_and_attendance.roll_no and /*input_category=mar
 
 SELECT student_data.roll_no, student_data.name, student_data.division, marks_and_attendance.ut1_marks,marks_and_attendance.ut2_marks,marks_and_attendance.category
 from student_data ,marks_and_attendance 
-where student_data.roll_no=marks_and_attendance.roll_no;
+where student_data.roll_no=marks_and_attendance.roll_no ;
 
 3. a division:
 

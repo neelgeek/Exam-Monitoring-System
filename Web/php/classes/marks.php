@@ -42,8 +42,7 @@ class marks
 		$x++;
 	}
 	 $query="INSERT into marks_and_attendance (`" . implode('` , `', $keys) . "`) VALUES ({$values}) ";
-
-
+	 echo $query;
 	if(!$this->_db->setquery($query)->error())
 	{
 	session::flash('marks','Marks Entered !');
@@ -78,7 +77,7 @@ class marks
      }
 
       $query= "UPDATE marks_and_attendance SET {$set} WHERE {$where}";
-  
+  	echo $query;
      if(!$this->_db->setquery($query)->error())
      {
         session::flash('marks','marks entered !');
