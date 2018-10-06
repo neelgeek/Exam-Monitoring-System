@@ -24,11 +24,7 @@ where student_data.roll_no=marks_and_attendance.roll_no and student_data.divisio
 
 5. Individual student:
 
-SELECT student_data.roll_no, student_data.name, student_data.division, marks_and_attendance.ut1_marks,marks_and_attendance.ut2_marks
-from student_data ,marks_and_attendance 
-where student_data.roll_no=marks_and_attendance.roll_no /* and input roll no=student_data.roll_name; */
-
-
+SELECT `roll_no`,`subject_name`, `ut1_marks`, `ut2_marks`, `total`, `category` FROM `marks_and_attendance`,`subject_data` WHERE marks_and_attendance.subject_id=subject_data.subject_id and input roll_no=marks_and_attendance.roll_no;
 6. Category(pie chart):
 
 SELECT marks_and_attendance.category, count(marks_and_attendance.category) as count_category
@@ -38,3 +34,12 @@ GROUP by marks_and_attendance.category;
 7.Total of ut1_marks and ut2_marks:
 
 UPDATE `marks_and_attendance` SET `total`=ut1_marks+ut2_marks WHERE 1;
+
+8. Insert marks:
+
+INSERT INTO `marks_and_attendance`(`subject_id`, `ut1/ut2_marks`, `roll_no`) VALUES ([value-1],[value-2],[value-3]);
+
+9. Update marks:
+
+UPDATE `marks_and_attendance` SET `ut1/ut2_marks`=[value-1] WHERE marks_and_attendance.roll_no=input roll_no;
+
