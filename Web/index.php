@@ -33,7 +33,15 @@
         body {
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             background-color: black;
+            background-image:url('images/background.jpg');
+            height: 600px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
         }
+
+
         
         * {
             box-sizing: border-box;
@@ -118,7 +126,7 @@
 
     <form action="" method="POST">
         <div class="container">
-            <h1>Sign in</h1>
+            <h2 align="center">Welcome to Exam Management Portal</h2>
             <br>
             <br>
             <p>Please enter your login id and password.</p>
@@ -136,9 +144,6 @@
             <button type="submit" class="registerbtn">Sign in</button>
         </div>
 
-        <div class="container signin">
-            <p>Don't have an account? <a href="#">Register</a>.</p>
-        </div>
     </form>
 
 </body>
