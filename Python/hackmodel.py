@@ -3,13 +3,14 @@ import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 import numpy as np
 import pickle
-df = pd.DataFrame(data={"x0":[1,2,3,7,8,10,12,13], 'x1':[1,2,3,7,8,10,12,13]})
+df = pd.DataFrame(data={"x0":[7,22,25,7,30,12,7,5], 'x1':[30,22,14,18,30,27,17,15]})
 
 kmeans=KMeans(n_clusters=3,init='random')  
 
 model=kmeans.fit(df)
 y_kmeans=model.predict(df)
 c=kmeans.cluster_centers_
+print(c)
 mylist=[]
 
 
