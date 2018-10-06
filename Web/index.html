@@ -23,6 +23,14 @@
         width:40%;
         float: right;
       }
+s
+
+    .border-both-chart{
+      border: 2px solid;
+    }
+
+
+
 </style>
 </head>
 <body>
@@ -75,7 +83,7 @@
 
 
 
-<div></div>
+<div class="border-both-chart">
 <div class="container2">
     <canvas id="myChart1"></canvas>
   </div>
@@ -175,7 +183,7 @@
     Chart.defaults.global.defaultFontColor = '#777';
 
     let massPopChart = new Chart(myChart, {
-      type:'pie', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+      type:'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
       data:{
         labels:['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
         datasets:[{
@@ -231,35 +239,10 @@
       }
     });
   </script>
+</div>
 
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
 
 <!--FOOTER-->
 <footer class="footer-distributed">
