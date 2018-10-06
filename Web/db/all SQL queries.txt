@@ -37,4 +37,4 @@ GROUP by marks_and_attendance.category;
 
 7.Total of ut1_marks and ut2_marks:
 
-UPDATE `marks_and_attendance` SET `total`ut1_marks+ut2_marks WHERE 1;
+UPDATE `marks_and_attendance` SET `total`=ut1_marks+ut2_marks WHERE 1;
