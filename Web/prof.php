@@ -2,7 +2,7 @@
 require_once 'php/init.php';
 $user = new user();
 
-if(!$user->IsLoggedIn())
+if(!$user->IsLoggedIn() || $user->data()->role!=1)
 {
     header("location: index.php");
 }
@@ -161,7 +161,7 @@ button:hover, a:hover {
 
 
 </style>  
-    
+
 </head>
 <body>
 
