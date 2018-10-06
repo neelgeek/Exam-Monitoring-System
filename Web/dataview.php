@@ -242,6 +242,7 @@ if($getAll)
     <th>Div</th>
     <th>Unit Test-1</th>
     <th>Unit Test-2</th>
+    <th>Performance</th>
   </tr>
 <?php
 foreach($allStudents as $obj)
@@ -253,6 +254,7 @@ print("
     <td>{$obj->division}</td>
     <td>{$obj->ut1_marks}</td>
     <td>{$obj->ut2_marks}</td>
+    <td>{$obj->category}</td>
   </tr>
   ");
 }
