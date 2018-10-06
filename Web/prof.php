@@ -191,7 +191,7 @@ button:hover, a:hover {
 <div class="card1">
          
         <a href="markentry.php"><button type="button">Enter Marks</button></a>
-        <button type="button">View Data</button>
+        <a href="dataview.php"><button type="button">View Data</button></a>
         <button type="button">visualize Data</button>
       </div>
 
