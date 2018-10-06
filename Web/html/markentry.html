@@ -41,6 +41,21 @@
             margin-right: 16px;
             font-size: 17px;
         }
+
+
+        
+.button {
+    background-color: #3333ff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
         /* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
         
         @media screen and (max-width: 600px) {
@@ -158,6 +173,10 @@
 
     <br>
     <br>
+
+    <div class="card">
+            <input type="button" class="button" id="classify" value="Classify" onclick="getStudents(<?php echo $prof_info->subject_id ?>)">
+        </div>
     <br>
 
     <form action="/action_page.php" method="POST">
