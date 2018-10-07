@@ -162,8 +162,10 @@ $marks = new marks();
         /* Add padding to containers */
         
         .container {
+            margin-top: -200px;
             padding: 10px 10px 10px 10px;
             background-color: white;
+            height: 700px;
         }
         /* Full-width input fields */
         
@@ -217,9 +219,14 @@ $marks = new marks();
             background-color: #f1f1f1;
             text-align: center;
         }
-        #classify{
-            background-color: orange;
-        }
+      .classify{
+          border: 2px solid;
+          width: 200px;
+          height: 75px;
+          margin-top: 180px;
+          margin-left: 200px;
+      }
+    
     </style>
 </head>
 
@@ -237,8 +244,9 @@ $marks = new marks();
    <!-- <div class="card">
         <input type="button" class="button" id="classify" value="Classify" onclick="getStudents(<?php echo $prof_info->subject_id ?>)">
     </div>-->
-
-
+    <div class="classify"> 
+    <button type="submit" class="registerbtn" onclick="getStudents(<?php echo $prof_info->subject_id ?>)">Classify</button>
+    </div>
     <form action="" method="POST" id="entryform">
         <div class="container">
             <h1>Marks Entry</h1>
@@ -262,8 +270,7 @@ $marks = new marks();
             <input type="text" placeholder="Enter Remark" name="remark" >
 
             <button type="submit" class="registerbtn" >Submit</button>
-            <br>
-            <button id="classify" type="submit" class="registerbtn" >Classify</button>
+            
         </div>
 
 
