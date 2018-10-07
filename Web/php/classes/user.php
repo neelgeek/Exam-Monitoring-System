@@ -48,8 +48,8 @@ public function register($table,$fields)
 
 	if(!$this->_db->setquery($query)->error())
 	{
-	// session::flash('home','User Registered Successfully ! You may now Login');
-	// header('location: index.php');
+	session::flash('home','User Registered Successfully ! You may now Login');
+	header('location: index.php');
 	echo "User Added";
 	}
 }
@@ -96,7 +96,9 @@ public function register($table,$fields)
 							header('location: hod.php');
 							break;
 						
-							
+						case '-1':
+							header('location: admin.php');
+							break;
 						default:
 							# code...
 							break;

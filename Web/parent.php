@@ -2,24 +2,24 @@
 require_once 'php/init.php';
 $user = new user();
 
-if(!$user->IsLoggedIn() || $user->data()->role!=0)
+if(!$user->IsLoggedIn() || $user->data()->role!=2)
 {
     header("location: index.php");
 }
 else
 {
 $uinfo = $user->data();
-$stud = new profile('student_data','roll_no',$uinfo->user_id);
-$stud_info  = $stud->data();
+$parent = new profile('student_data','p_id',$uinfo->user_id);
+$par_info  = $parent->data();
 
 $marks = new marks();
 
-$marks->getUTscores($uinfo->user_id);
+$marks->getUTscoreParents($uinfo->user_id);
 $utdata = $marks->results(); 
-
 
 }
 
+//var_dump($par_info);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +28,7 @@ $utdata = $marks->results();
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Welcome <?php echo $stud_info->name ?></title>
+  <title>Responsive Side Menu</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
@@ -114,7 +114,7 @@ $utdata = $marks->results();
 
 .card1{
     
-    margin-top: -420px;
+    margin-top: -340px;
     max-width: 700px;
     height: 300px;
     margin-left: 450px;
@@ -129,7 +129,7 @@ $utdata = $marks->results();
   top: 150px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 300px;
-  height: 200px;
+  height: 120px;
   margin: auto;
   text-align: center;
   font-family: 'Trebuchet MS';
@@ -157,9 +157,9 @@ $utdata = $marks->results();
 }
 
 .card1 button{
-    
+    border: 1px solid;
     display: inline-block;
-    
+    margin-top: 80px;
     padding: 8px;
     color: #2196F3;
     text-align: center;
@@ -240,8 +240,14 @@ button:hover, a:hover {
 }
 
 /* Style the search box inside the navigation bar */
-
-
+.topnav input[type=text] {
+    float: right;
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+}
 
 /* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
 @media screen and (max-width: 600px) {
@@ -262,19 +268,6 @@ button:hover, a:hover {
     }
 }
 
-
-.button {
-    background-color: #3333ff;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
                 
         .container {
             margin-right: 5px;
@@ -287,8 +280,6 @@ button:hover, a:hover {
             margin-left: 550px;
             margin-bottom: 200px;
         }
-
-       
         
         body {
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -311,7 +302,21 @@ button:hover, a:hover {
         }
         /* Full-width input fields */
         
+        input[type=text],
+        input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: solid;
+            background: #f1f1f1;
+        }
         
+        input[type=text]:focus,
+        input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
         /* Overwrite default styles of hr */
         
         hr {
@@ -362,7 +367,7 @@ button:hover, a:hover {
         height:70%;
         width:50%;
         float: right;
-        margin-top:50px;
+        margin-top: 50px;
       }
 
 .mytable{
@@ -405,7 +410,7 @@ button:hover, a:hover {
 <body>
 <div class="divpos">
         <div class="topnav">
-                <a class="active" href="student.php">Home</a>
+                <a class="active" href="parent.php">Home</a>
                 <a href="#about">About</a>
                 <a href="#contact">Contact</a>
                 <!--<input type="text" placeholder="Search..">-->
@@ -416,26 +421,24 @@ button:hover, a:hover {
 <div class="card">
   
   <h3>Welcome</h3>
-  <h1><?php echo $stud_info->name ?></h1>
+  <h1><?php echo $par_info->p_name ?></h1>
   
   <p>D.Y Patil University</p>
   <div style="margin: 24px 0;">
      
    
  </div>
- <p><button>Roll-No:<?php echo $stud_info->roll_no ?></button></p>
+ <p><button>User-ID: <?php echo $par_info->p_id  ?></button></p>
 </div>
 
 <div class="card2">
   
-        <h5><b>Submit Your Review Application:</b></h5>
-        Subject:<input type='text' name='review_subject'><br><br>
-        Unit Test:<input type='number' name='review_ut'><br><br>
-        <input type="button" class="button" value="Submit">  
+        <h3>Your scheduled meetings are:</h3>
+        <h5><i>Currently there are no meetings scheduled.</i></h5>
+        
        
        
       </div>
-
 
 <div class="card1">
          
@@ -449,11 +452,12 @@ button:hover, a:hover {
             
             
 
+
 <div class="container1">
         <canvas id="myChart2"></canvas>
       </div>
     
-    
+        
       </div>
       <div class="mytable">
         
@@ -500,9 +504,7 @@ button:hover, a:hover {
 <div class="footer">
         <p>Exam Monitoring</p>
       </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="js/visual.js"></script>
-    
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="js/visualParent.js"></script>
 </body>
-
 </html>   

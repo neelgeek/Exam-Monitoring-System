@@ -93,6 +93,7 @@ kmeans=KMeans(n_clusters=3,init='random')
 model=kmeans.fit(df)
 y_kmeans=model.predict(df)
 c=kmeans.cluster_centers_
+print(c)
 mylist=[]
 
 

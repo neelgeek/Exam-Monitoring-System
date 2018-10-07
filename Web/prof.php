@@ -1,7 +1,6 @@
 <?php
 require_once 'php/init.php';
 $user = new user();
-
 if(!$user->IsLoggedIn() || $user->data()->role!=1)
 {
     header("location: index.php");
@@ -198,18 +197,11 @@ button:hover, a:hover {
 </div>
 
 <div class="card1">
-
-<button type="button">Enter Marks</button>
-<button type="button">View Data</button>
-<select class='dropdown_option'>
-        <option value="A">A</option>
-        <option value="B">B</option>
-        <option value="both">Both</option>
-       
-      </select>
-<button type="button">visualize Data</button>
-
-</div>
+         
+        <a href="markentry.php"><button type="button">Enter Marks</button></a>
+        <a href="dataview.php"><button type="button">View Data</button></a>
+        <a href="profvisual.php"><button type="button">Visualize Data</button></a>
+      </div>
 
 
 
