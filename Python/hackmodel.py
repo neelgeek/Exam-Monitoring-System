@@ -3,7 +3,87 @@ import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 import numpy as np
 import pickle
-df = pd.DataFrame(data={"x0":[7,25,22,7,30,12,5,7], 'x1':[30,14,22,18,30,27,15,17]})
+df = pd.DataFrame(data={"x0":[7,
+12,
+30,
+5,
+25,
+22,
+7,
+7,
+25,
+15,
+6,
+30,
+29,
+20,
+8,
+25,
+12,
+17,
+17,
+26,
+7,
+25,
+4,
+30,
+15,
+12,
+29,
+30,
+25,
+6,
+15,
+17,
+29,
+29,
+29,
+10,
+25,
+5,
+30,
+], 'x1':[
+    30,
+18,
+15,
+22,
+27,
+14,
+30,
+17,
+12,
+30,
+25,
+25,
+15,
+30,
+20,
+30,
+7,
+17,
+25,
+15,
+24,
+30,
+28,
+17,
+15,
+4,
+30,
+30,
+29,
+4,
+16,
+7,
+29,
+28,
+28,
+20,
+22,
+27,
+30
+
+]})
 df['total']=df['x0']+df['x1']
 df['total1']=df['x0']+df['x1']
 df = df.drop("x0", axis=1)
@@ -13,6 +93,7 @@ kmeans=KMeans(n_clusters=3,init='random')
 model=kmeans.fit(df)
 y_kmeans=model.predict(df)
 c=kmeans.cluster_centers_
+print(c)
 mylist=[]
 
 

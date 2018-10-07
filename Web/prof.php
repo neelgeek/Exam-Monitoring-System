@@ -1,7 +1,6 @@
 <?php
 require_once 'php/init.php';
 $user = new user();
-
 if(!$user->IsLoggedIn() || $user->data()->role!=1)
 {
     header("location: index.php");
@@ -32,7 +31,7 @@ $prof_info  = $prof->data();
 
  body{
      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-     background-color: #222222 ;
+     background-color: #dddddd ;
  }
  
 .topnav {
@@ -70,6 +69,20 @@ $prof_info  = $prof->data();
     margin-top: 8px;
     margin-right: 16px;
     font-size: 17px;
+}
+
+        .dropdown_option {
+    background-color: #dddddd;
+    color: black;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    height:60px;
+    cursor: pointer;
+    border: 1px solid;
+    border-color: black;;
+    
+    
 }
 
 @media screen and (max-width: 600px) {
@@ -131,14 +144,15 @@ $prof_info  = $prof->data();
 
 .card1 button{
     border: 1px solid;
-    display: inline-block;
-    margin-top: 80px;
-    padding: 8px;
-    color: #2196F3;
-    text-align: center;
-    cursor: pointer;
-    width: 300px;
-    height: 60px;
+            border-color: black;
+            display: inline-block;
+            margin-top: 80px;
+            padding: 8px;
+            color: black;
+            text-align: center;
+            cursor: pointer;
+            width: 300px;
+            height: 60px;
 }
 
 
@@ -186,7 +200,7 @@ button:hover, a:hover {
          
         <a href="markentry.php"><button type="button">Enter Marks</button></a>
         <a href="dataview.php"><button type="button">View Data</button></a>
-        <button type="button">visualize Data</button>
+        <a href="profvisual.php"><button type="button">Visualize Data</button></a>
       </div>
 
 
