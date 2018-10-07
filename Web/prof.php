@@ -36,13 +36,14 @@ $prof_info  = $prof->data();
  
 .topnav {
     overflow: hidden;
-    background-color: #e9e9e9;
+    background-color: black;
+    
 }
 
 .topnav a {
     float: left;
     display: block;
-    color: black;
+    color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -110,7 +111,8 @@ $prof_info  = $prof->data();
   text-align: center;
   font-family: 'Trebuchet MS';
   border: 2px solid;
-  background-color: white;
+  background-color: #2a2f33;
+  color:white;
 }
 
 .card1{
@@ -121,6 +123,7 @@ $prof_info  = $prof->data();
     margin: auto;
     text-align: center;
     border: 2px solid;
+    background-color:#2a2f33;
     
 }
 
@@ -153,6 +156,8 @@ $prof_info  = $prof->data();
             cursor: pointer;
             width: 300px;
             height: 60px;
+            background-color:;
+            
 }
 
 
@@ -184,6 +189,7 @@ button:hover, a:hover {
 
 <div class="card">
   <img src="images/user21.png" alt="John" style="width:100%">
+  
   <h1><?php print($prof_info->prof_name) ?></h1>
   <p class="title"><?php print($prof_info->designation) ?></p>
   <p>RAIT,Nerul</p>

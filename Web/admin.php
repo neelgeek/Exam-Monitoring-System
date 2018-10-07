@@ -75,7 +75,7 @@ button:hover, a:hover {
     <h3>Admin Panel</h3>
     <a href="studreg.php">Student Registration</a>
     <a href="parentreg.php">Parent Registration</a>
-    <a href="teachreg.html">Teacher Registation</a>
+    <a href="teachreg.php">Teacher Registation</a>
     <a href="#">Remove</a>
     <a href="#">Inspect</a>
     <a href="#">View Credentials</a>
