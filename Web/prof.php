@@ -31,7 +31,7 @@ $prof_info  = $prof->data();
 
  body{
      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-     background-color: #222222 ;
+     background-color: #dddddd ;
  }
  
 .topnav {

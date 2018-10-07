@@ -143,9 +143,10 @@ $marks = new marks();
             padding-bottom: 2px;
             border: 2px solid;
             width: 500px;
-            height: 650px;
+            height: 700px;
             margin-left: 450px;
             margin-bottom: 200px;
+            margin-top: 80px;
         }
         
         body {
@@ -216,6 +217,9 @@ $marks = new marks();
             background-color: #f1f1f1;
             text-align: center;
         }
+        #classify{
+            background-color: orange;
+        }
     </style>
 </head>
 
@@ -230,9 +234,9 @@ $marks = new marks();
         
     </div>
 
-    <div class="card">
+   <!-- <div class="card">
         <input type="button" class="button" id="classify" value="Classify" onclick="getStudents(<?php echo $prof_info->subject_id ?>)">
-    </div>
+    </div>-->
 
 
     <form action="" method="POST" id="entryform">
@@ -258,6 +262,8 @@ $marks = new marks();
             <input type="text" placeholder="Enter Remark" name="remark" >
 
             <button type="submit" class="registerbtn" >Submit</button>
+            <br>
+            <button id="classify" type="submit" class="registerbtn" >Classify</button>
         </div>
 
 

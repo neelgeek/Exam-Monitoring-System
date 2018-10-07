@@ -127,10 +127,14 @@ $prof_info  = $prof->data();
         .container2 {
             height: 50%;
             width: 50%;
-            float: left;
-            margin-bottom: 150px
+            float: left;    
+            margin-bottom: 150px;
+          
+            
         }
         
+        
+
         .plsshift {
             margin-left: 250px;
         }
@@ -142,14 +146,14 @@ $prof_info  = $prof->data();
 
 
     <div class="topnav">
-        <a class="active" href="#home">Home</a>
+        <a class="active" href="prof.php">Home</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
         <!--<input type="text" placeholder="Search.."-->
-        <a href="logout.php">logout</a>
+     
     </div>
 
-    <h2 align="center">Data Visualization</h2>
+    <h2 align="center">Student Performance Data Visualization</h2>
 
 
     <div class="plsshift">
@@ -232,7 +236,6 @@ $prof_info  = $prof->data();
                             }],
 
                             yAxes: [{
-
                                 stacked: true,
                                 max: 60
 
@@ -248,21 +251,7 @@ $prof_info  = $prof->data();
 
 
 
-            document.getElementById('randomizeData').addEventListener('click', function() {
-
-                barChartData.datasets.forEach(function(dataset) {
-
-                    dataset.data = dataset.data.map(function() {
-
-                        return randomScalingFactor();
-
-                    });
-
-                });
-
-                window.myBar.update();
-
-            });
+         
         </script>
 
         <br><br>
@@ -271,75 +260,12 @@ $prof_info  = $prof->data();
 
 
 
-        <div class="container2">
-            <canvas id="myChart1"></canvas>
+        <div class="container2 piediv">
+            <canvas  id="myChart1"></canvas>
         </div>
 
         <script>
-            let myChart1 = document.getElementById('myChart1').getContext('2d');
-
-            // Global Options
-            Chart.defaults.global.defaultFontFamily = 'Trebuchet MS';
-            Chart.defaults.global.defaultFontSize = 18;
-            Chart.defaults.global.defaultFontColor = '#777';
-
-            let massPopChart1 = new Chart(myChart1, {
-                type: 'pie', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
-                data: {
-                    labels: ['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
-                    datasets: [{
-                        label: 'Population',
-                        data: [
-                            617594,
-                            181045,
-                            153060,
-                            106519,
-                            105162,
-                            95072
-                        ],
-                        //backgroundColor:'green',
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.6)',
-                            'rgba(54, 162, 235, 0.6)',
-                            'rgba(255, 206, 86, 0.6)',
-                            'rgba(75, 192, 192, 0.6)',
-                            'rgba(153, 102, 255, 0.6)',
-                            'rgba(255, 159, 64, 0.6)',
-                            'rgba(255, 99, 132, 0.6)'
-                        ],
-                        borderWidth: 1,
-                        borderColor: '#777',
-                        hoverBorderWidth: 3,
-                        hoverBorderColor: '#000'
-                    }]
-                },
-                options: {
-                    title: {
-                        display: false,
-                        text: 'Largest Cities In Massachusetts',
-                        fontSize: 25
-
-                    },
-                    legend: {
-                        display: false,
-                        position: 'left',
-                        labels: {
-                            fontColor: '#000'
-                        }
-                    },
-                    layout: {
-                        padding: {
-                            left: 50,
-                            right: 0,
-                            bottom: 0,
-                            top: 0
-                        }
-                    },
-                    tooltips: {
-                        enabled: true
-                    }
-                }
-            });
+            
         </script>
 
 
@@ -355,7 +281,8 @@ $prof_info  = $prof->data();
         </div>
 
     </div>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="js/visualprof.js"></script>
 </body>
 
 </html>
