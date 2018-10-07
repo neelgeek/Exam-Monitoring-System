@@ -10,32 +10,48 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   
-  <style>
-   .container1{
-        height:60%;
-        width:60%;
-        float: left;
-       
-        
-     }
-      .container2{
-        height:40%;
-        width:40%;
-        float: right;
-      }
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
 
+.title {
+  color: grey;
+  font-size: 18px;
+}
 
-    .border-both-chart{
-      border: 2px solid;
-    }
- 
-  .spacing{
-    margin-left: 40px;
-    margin-right: 40px; 
-  }
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+
+.card{
+  border-width: 20px ;
+}
 
 </style>
 </head>
+
 <body>
   <nav class="navbar">
     <span class="open-slide">
@@ -84,40 +100,26 @@
   </script>
 
 
-<div class="spacing">
- <p>
-    n this exercise, the idea is to write a paragraph that would be a random passage from a story. An effective paragraph is one that has unity (it isn’t a hodgepodge of things), focus (everything in the paragraph stacks up to the whatever-it-is the paragraph is about), and coherence (the content follows smoothly). For this exercise, the paragraph should be quick to read--say, not be more than 100 words long.
 
-    A paragraph needn’t be several sentences long, but might be only a sentence or two, or a single line of dialogue.
+<div class="card">
+  <img src="user21.png" alt="John" style="width:100%">
+  <h3>Welcome Admin</h3>
+  <p class="title">Ramrao Adik Institute of Technology </p>
+  <p>IT Department</p>
+  <p>D.Y Patil University</p>
+  <div style="margin: 24px 0;">
     
-    Or it could be a snippet of dialogue with narration:
-    
-    She made an attempt to straighten her tawny hair. Her voice quavered with emotion. “You must be a very lonely man, Judge Seagrave.” Then she turned a gaze on him that might have ignited a rain-sodden haystack. “And I’m a lonely woman.”
-    
-    It might be merely descriptive:
-    
-    Lines of weeds criss-crossed the cracked parking lot of the Seashell Motor Courts. The flaking paint on the buildings had chalked to a pastel pink on walls covered with graffiti. Many of the windows had been smashed out. Where the sign had been, atop rusting steel posts, only the metal outline of a seashell remained.
+    <a href="#"><i class="fa fa-twitter"></i></a>  
+    <a href="#"><i class="fa fa-linkedin"></i></a>  
+    <a href="#"><i class="fa fa-facebook"></i></a> 
+ </div>
+ <p><button>Examination Monitoring System</button></p>
 
- </p>
-<br>
- <p>
-    n this exercise, the idea is to write a paragraph that would be a random passage from a story. An effective paragraph is one that has unity (it isn’t a hodgepodge of things), focus (everything in the paragraph stacks up to the whatever-it-is the paragraph is about), and coherence (the content follows smoothly). For this exercise, the paragraph should be quick to read--say, not be more than 100 words long.
-
-    A paragraph needn’t be several sentences long, but might be only a sentence or two, or a single line of dialogue.
-    
-    Or it could be a snippet of dialogue with narration:
-    
-    She made an attempt to straighten her tawny hair. Her voice quavered with emotion. “You must be a very lonely man, Judge Seagrave.” Then she turned a gaze on him that might have ignited a rain-sodden haystack. “And I’m a lonely woman.”
-    
-    It might be merely descriptive:
-    
-    Lines of weeds criss-crossed the cracked parking lot of the Seashell Motor Courts. The flaking paint on the buildings had chalked to a pastel pink on walls covered with graffiti. Many of the windows had been smashed out. Where the sign had been, atop rusting steel posts, only the metal outline of a seashell remained.
-  
-  </p>
 </div>
 
 
-
+<br>
+<br>
 
 <!--FOOTER-->
 <footer class="footer-distributed">
