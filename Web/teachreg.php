@@ -9,28 +9,19 @@ else
 {
     if(input::exists())
     {
+        $user->register('subject_data',array(
+            "subject_id"=>input::get('cdrn'),
+            "subject_name"=>input::get('subject'),
+            "prof_name"=>input::get('name'),
+            "designation"=>input::get('desig')
+        ));
+
         $user->register('users',array(
-            "user_id"=>input::get('roll'),
+            "user_id"=>input::get('cdrn'),
             "password"=>input::get('psw'),
-            "role"=>0));
-
-            $user->register('student_data',array(
-                "roll_no"=>input::get('roll'),
-                "name"=>input::get('name'),
-                "class"=>input::get('class'),
-                "division"=>input::get('div')
-            ));
-    
-
+            "role"=>1));
     }
-    // if(input::exists())
-    // {
-
-    
-    // }
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -46,11 +37,12 @@ else
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <style>
 <style>
 *{
     margin-right: 5px;
     margin-left: 5px;
-   
+    padding-top: 2px;
     padding-bottom: 2px;
 }    
 body {
@@ -156,27 +148,38 @@ a {
               </div>
 
 
-<form action="studreg.php" method="POST">
+<form action="teachreg.php" method="POST">
   <div class="container">
-    <h1>Student Registration</h1>
-    <p>Please fill in details to create admin account.</p>
+    <h1>Teacher registration</h1>
+    <p>Please fill in this form to create an account.</p>
     <hr noshade>
 
     <label for="name"><b>Name</b></label>
     <input type="text" placeholder="[First Name] [Middle Name] [Last Name]" name="name" required>
 
-    <label for="Roll"><b>Roll No</b></label>
-    <input type="text" placeholder="Enter Roll No" name="roll" required>
+    <label for="email"><b>CDRN</b></label>
+    <input type="text" placeholder="Enter CDRN" name="cdrn" required>
 
-    <label for="Class"><b>Class</b></label>
-    <input type="text" placeholder="Enter Email" name="class" required>
+    <label for="phone"><b>Subject</b></label>
+    <select name='subject'>
+        <option value="wt">WT</option>
+        <option value="ip">IP</option>
+        <option value="is">IS</option>
+        <option value="spm">SPM</option>
+        <option value="cc">CC</option>
+    </select>
 
-    <label for="email"><b>Div</b></label>
-    <input type="text" placeholder="Enter Email" name="div" required>
+    <br>
+    <br>
 
-    <label for="phone"><b>Phone No</b></label>
-    <input type="text" placeholder="Enter mobile No" name="phn" required>
-
+    <label for="email"><b>Designation</b></label>
+    <select name='desig'>
+        <option value="Professor">Professor</option>
+        <option value="Assistant Prof.">Assistant Prof.</option>
+        <option value="Lecturer">Lecturer</option>
+    </select>
+<br>
+<br>
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
 

@@ -9,43 +9,28 @@ else
 {
     if(input::exists())
     {
-        $user->register('users',array(
-            "user_id"=>input::get('roll'),
-            "password"=>input::get('psw'),
-            "role"=>0));
-
-            $user->register('student_data',array(
-                "roll_no"=>input::get('roll'),
-                "name"=>input::get('name'),
-                "class"=>input::get('class'),
-                "division"=>input::get('div')
-            ));
-    
-
+        $user->update(array(
+            "p_name"=>input::get('name'),
+            "p_phone"=>input::get('phn'),
+        ),'roll_no',input::get('roll'),'student_data');
+        
     }
-    // if(input::exists())
-    // {
-
-    
-    // }
 }
-
-
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Responsive Side Menu</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Responsive Side Menu</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <style>
 *{
     margin-right: 5px;
@@ -60,6 +45,8 @@ body {
 
 * {
     box-sizing: border-box;
+    padding: 0;
+    margin:0;
 }
 
 /* Add padding to containers */
@@ -69,6 +56,7 @@ body {
     height: auto;
     width: 500px;
     margin-left: 33%;
+
 }
 
 /* Full-width input fields */
@@ -125,6 +113,7 @@ a {
 </head>
 <body>
 
+
         <nav class="navbar">
                 <span class="open-slide">
                   <a href="#" onclick="openSlideMenu()">
@@ -156,26 +145,24 @@ a {
               </div>
 
 
-<form action="studreg.php" method="POST">
+
+<form action="parentreg.php" method="POST">
   <div class="container">
-    <h1>Student Registration</h1>
+    <h1>Parent Registration</h1>
     <p>Please fill in details to create admin account.</p>
     <hr noshade>
 
     <label for="name"><b>Name</b></label>
     <input type="text" placeholder="[First Name] [Middle Name] [Last Name]" name="name" required>
 
-    <label for="Roll"><b>Roll No</b></label>
-    <input type="text" placeholder="Enter Roll No" name="roll" required>
-
-    <label for="Class"><b>Class</b></label>
-    <input type="text" placeholder="Enter Email" name="class" required>
-
-    <label for="email"><b>Div</b></label>
-    <input type="text" placeholder="Enter Email" name="div" required>
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
 
     <label for="phone"><b>Phone No</b></label>
     <input type="text" placeholder="Enter mobile No" name="phn" required>
+
+    <label for="studRoll"><b>Student Roll No</b></label>
+    <input type="text" placeholder="Enter student Roll No" name="roll" required>
 
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>

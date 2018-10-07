@@ -46,6 +46,7 @@ private function __construct()
 					{
 						//echo "<br> executed ",$query;
 						$this->_results=$this->_query->fetchAll(PDO::FETCH_OBJ);
+						
 						$this->_count=$this->_query->rowCount();
 						
 					}

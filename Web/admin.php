@@ -57,8 +57,8 @@
   <div id="side-menu" class="side-nav">
     <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
     <h3>Admin Panel</h3>
-    <a href="studreg.html">Student Registration</a>
-    <a href="parentreg.html">Parent Registration</a>
+    <a href="studreg.php">Student Registration</a>
+    <a href="parentreg.php">Parent Registration</a>
     <a href="teachreg.html">Teacher Registation</a>
     <a href="#">Remove</a>
     <a href="#">Inspect</a>

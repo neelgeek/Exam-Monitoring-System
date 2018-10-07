@@ -49,7 +49,7 @@ public function register($table,$fields)
 	if(!$this->_db->setquery($query)->error())
 	{
 	session::flash('home','User Registered Successfully ! You may now Login');
-	header('location: index.php');
+	//header('location: index.php');
 	echo "User Added";
 	}
 }
@@ -134,7 +134,7 @@ public function register($table,$fields)
 		return $this->_data;
 	}
 
-	public function update($fields,$id)
+	public function update($fields,$filter,$id,$table)
 	{
 		$set='';
 		$y=1;
@@ -149,10 +149,12 @@ public function register($table,$fields)
 			$y++;
 		}
 
-		 $query= "UPDATE users SET {$set} WHERE user_id = '{$id}'";
-		
-		if(!$this->_db->setquery($query)->error())
+		 $query= "UPDATE {$table} SET {$set} WHERE {$filter} = '{$id}'";
+		$res = $this->_db->setquery($query);
+		if(!$res->error())
 		{
+			
+			$this->_data = $res->results();
 			return true;
 			
 		}
