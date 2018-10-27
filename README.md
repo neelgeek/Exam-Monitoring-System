@@ -11,3 +11,6 @@ The objective of the Project is to take all the Exam data ,currently stored in p
 4. Jquery (Ajax)
 5. Python (Scikit Learn and Flask)
 6. Apache and MySQL
+
+
+Just a Pull request for Hackthober
