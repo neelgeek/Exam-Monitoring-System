@@ -13,4 +13,3 @@ The objective of the Project is to take all the Exam data ,currently stored in p
 6. Apache and MySQL
 
 
-Just a Pull request for Hackthober
