@@ -17,4 +17,4 @@
 6. Apache and MySQL
 
 
-### This project is made for Hackthon organised by ITSA,2018
+<footer> <p> This project is made for Hackthon organised by ITSA,2018 </p> </footer>
