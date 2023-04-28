@@ -1,7 +1,11 @@
 # Exam-Monitoring-System
-This project is made for Hackthon organised by ITSA,2018
 
-The objective of the Project is to take all the Exam data ,currently stored in paper format and use it to provide Analytics using Machine Learning and Data Visualisation.
+# About
+
+* The objective of this project is to revolutionize the way we analyze exam data by transitioning from traditional paper-based storage to a more efficient, data-driven approach. 
+* By utilizing machine learning algorithms and data visualization techniques, we aim to provide a more comprehensive and user-friendly platform for analyzing exam data. 
+* Our goal is to create an interactive system that not only saves time and effort but also provides insights that can inform educational strategies and decision-making processes. 
+* With this project, we hope to usher in a new era of data-driven education, where technology is harnessed to provide greater insights and improvements to the learning experience.
 
 # Techstack -
 
@@ -13,3 +17,4 @@ The objective of the Project is to take all the Exam data ,currently stored in p
 6. Apache and MySQL
 
 
+<footer> <p> This project is made for Hackthon organised by ITSA,2018 </p> </footer>
